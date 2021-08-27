@@ -27,14 +27,13 @@ class App extends Component {
 
   render() {
     const { selectedFlat } = this.state;
-    const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API;
     return (
       <div>
         <div className="flat-list">
           <FlatList flats={flats} selectFlat={this.selectFlat} selectedFlat={selectedFlat} />
         </div>
         <div className="map-container">
-          <GoogleMapReact bootstrapURLKeys={API_KEY} defaultCenter={this.center()} defaultZoom={12}>
+          <GoogleMapReact defaultCenter={this.center()} defaultZoom={12}>
             <Marker lat={selectedFlat.lat} lng={selectedFlat.lng} />
           </GoogleMapReact>
         </div>
